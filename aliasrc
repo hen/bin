@@ -1,0 +1,11 @@
+alias xg="xargs grep $*"
+alias wget="curl -sO"
+
+export FIGNORE=.class:.o:CVS:.cvsignore:.svn:.git
+
+alias dos2unix="perl -pi -e 's/\r\n/\n/;'"
+alias unix2dos="perl -pi -e 's/\n/\r\n/;'"
+
+function findx() {
+   find $1 -type f -name "*.$2" | grep -v '\.svn'
+} 
