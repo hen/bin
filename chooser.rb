@@ -2,6 +2,8 @@
 # Define CHOICE_COUNTS as a Hash of 'Person' => number-of-choices
 # Define OPTIONS as each 'Person's order of choice
 
+# See chooser_example.rb for an example
+
 # Dramatic time to sleep between announcements
 SLEEP=0
 
