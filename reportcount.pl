@@ -3,13 +3,17 @@
 sub numerically { $a <=> $b; }
 
 while(<>) {
-    $report{$_} = $report{$_} + 1;
+    @fields = split /\t/;
+    $report{$fields[0]} = $report{$fields[0]} + 1;
+    $sums{$fields[0]} = $report{$fields[0]} + $fields[1];
 }
 
 $total=0;
 
 while( ($key,$value) = each(%report) ) {
-    push @report, ("$value - $key");
+    $avg = $sums{$key} / ${value};
+    $avgstr = sprintf("%.2f", $avg);
+    push @report, ("$avgstr - $key\n");
     $total += $value;
 }
 
@@ -17,5 +21,5 @@ $"="\n";
 
 print reverse sort numerically @report;
 
-print "\nAuthors: ". keys(%report) . "\n";
+print "\nRows: ". keys(%report) . "\n";
 print "Total: ${total}\n";
